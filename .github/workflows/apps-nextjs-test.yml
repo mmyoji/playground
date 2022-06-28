@@ -16,6 +16,7 @@ jobs:
         with:
           node-version: 16
           cache: "npm"
+          cache-dependency-path: apps/nextjs/package-lock.json
       - uses: denoland/setup-deno@v1
         with:
           deno-version: v1.x

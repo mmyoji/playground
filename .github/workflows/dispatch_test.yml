@@ -1,0 +1,22 @@
+name: test
+on: [workflow_dispatch]
+jobs:
+  foo:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "hi"
+      - name: Show context values
+        run: |
+          echo 'github.job=${{ github.job }}'
+          echo 'github.run_id=${{ github.run_id }}'
+          echo 'job.container.id=${{ job.container.id }}'
+          echo 'github.action_repository=${{ github.action_repository }}'
+  bar:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "hi"
+      - name: Show context values
+        run: |
+          echo 'github.job=${{ github.job }}'
+          echo 'github.run_id=${{ github.run_id }}'
+          echo 'job.container.id=${{ job.container.id }}'

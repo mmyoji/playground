@@ -1,0 +1,7 @@
+{
+  "tasks": {
+    "dev": "deno run --allow-env=PORT --allow-net=0.0.0.0 main.ts",
+    "build": "deno compile --allow-env=PORT --allow-net=0.0.0.0 --output bin/main main.ts"
+  },
+  "importMap": "import_map.json"
+}

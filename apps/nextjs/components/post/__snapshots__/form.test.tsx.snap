@@ -1,0 +1,41 @@
+// Vitest Snapshot v1
+
+exports[`<PostForm> > matches former snapshot 1`] = `
+<div>
+  <form>
+    <div>
+      <label
+        for="title"
+      >
+        Title
+      </label>
+      <br />
+      <input
+        data-testid="title"
+        id="title"
+        name="title"
+        required=""
+        value=""
+      />
+    </div>
+    <div>
+      <label
+        for="published"
+      >
+        <input
+          data-testid="published"
+          id="published"
+          name="published"
+          type="checkbox"
+        />
+        Published
+      </label>
+    </div>
+    <input
+      data-testid="submit"
+      type="submit"
+      value="Submit"
+    />
+  </form>
+</div>
+`;

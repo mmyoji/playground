@@ -1,0 +1,26 @@
+name: Test apps/nextjs
+on:
+  push:
+    paths:
+      - "apps/nextjs/**"
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: apps/nextjs
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 16
+          cache: "npm"
+      - uses: denoland/setup-deno@v1
+        with:
+          deno-version: v1.x
+      - run: npm ci
+      - run: npm run fmt:check
+      - run: npm run lint
+      - run: npx tsc --noEmit
+      - run: npm test

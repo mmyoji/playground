@@ -1,0 +1,7 @@
+{
+  "fmt": {
+    "files": {
+      "exclude": [".next", ".vscode", "package-lock.json"]
+    }
+  }
+}

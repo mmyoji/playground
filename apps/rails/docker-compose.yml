@@ -1,0 +1,35 @@
+x-app: &x-app
+  build: .
+  env_file:
+    - .env
+  depends_on:
+    - postgres
+    - redis
+  volumes:
+    - .:/usr/src/app
+    - bundle:/usr/local/bundle
+
+version: '3.8'
+services:
+  web:
+    <<: *x-app
+    command: bin/rails s -p ${PORT} -b '0.0.0.0'
+    ports:
+      - "${PORT}:${PORT}"
+
+  # FIXME: This causes an error
+  # worker:
+  #   <<: *x-app
+  #   command: bundle exec sidekiq -q default -q mailer
+
+  postgres:
+    image: postgres:14.2-alpine
+    env_file:
+      - .env
+
+  redis:
+    image: redis:6.2-alpine
+
+volumes:
+  bundle:
+    driver: local

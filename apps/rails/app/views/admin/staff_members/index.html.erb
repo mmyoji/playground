@@ -1,0 +1,33 @@
+<h1 class="title"><%= t ".title" %></h1>
+
+<div class="content is-medium">
+  <table class="table is-striped is-hoverable">
+    <thead>
+      <tr>
+        <th><%= t "id" %></th>
+        <th><%= t "activerecord.attributes.staff_member.company_id" %></th>
+        <th><%= t "activerecord.attributes.staff_member.username" %></th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @staff_members.each do |staff_member| %>
+        <tr>
+          <th><%= staff_member.id %></th>
+          <td><%= link_to staff_member.company.name, admin_company_path(staff_member.company) %></td>
+          <td><%= staff_member.username %></td>
+          <td>
+            <div class="columns">
+            <div class="column">
+            <%= link_to t("show"), admin_staff_member_path(staff_member), class: "button" %>
+            </div>
+            <div class="column">
+            <%= link_to t("edit"), edit_admin_staff_member_path(staff_member), class: "button" %>
+            </div>
+            </div>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

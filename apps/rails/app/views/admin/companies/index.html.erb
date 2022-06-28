@@ -1,0 +1,42 @@
+<div class="level">
+  <div class="level-left">
+    <h1 class="title"><%= t ".title" %></h1>
+  </div>
+  <div class="level-right">
+    <%= link_to t("admin.companies.new.title"), new_admin_company_path, class: "button is-primary" %>
+  </div>
+</div>
+
+<div class="content is-medium">
+  <table class="table is-striped is-hoverable">
+    <thead>
+      <tr>
+        <th><%= t "id" %></th>
+        <th><%= t "activerecord.attributes.company.name" %></th>
+        <th><%= t "activerecord.attributes.company.address" %></th>
+        <th><%= t "activerecord.attributes.company.founded_at" %></th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @companies.each do |company| %>
+        <tr>
+          <th><%= company.id %></th>
+          <td><%= company.name %></td>
+          <td><%= company.address %></td>
+          <td><%= company.founded_at %></td>
+          <td>
+            <div class="columns">
+            <div class="column">
+            <%= link_to t("show"), admin_company_path(company), class: "button" %>
+            </div>
+            <div class="column">
+            <%= link_to t("edit"), edit_admin_company_path(company), class: "button" %>
+            </div>
+            </div>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

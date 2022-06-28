@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= t "web.title" %></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
+    <%= stylesheet_link_tag 'application' %>
+    <%= javascript_importmap_tags %>
+  </head>
+
+  <body>
+    <nav class="navbar" role="navigation" aria-label="main navigation">
+      <div class="navbar-brand">
+        <%= link_to root_path, class: "navbar-item" do %>
+          <p>Rails Playground</p>
+        <% end %>
+
+        <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false">
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+        </a>
+      </div>
+
+      <div id="navbarBasicExample" class="navbar-menu">
+        <div class="navbar-start">
+          <%= link_to "#", class: "navbar-item" do %>
+            Home
+          <% end %>
+
+          <%= link_to "#", class: "navbar-item" do %>
+            Documentation
+          <% end %>
+
+          <div class="navbar-item has-dropdown is-hoverable">
+            <%= link_to "#", class: "navbar-link" do %>
+              More
+            <% end %>
+
+            <div class="navbar-dropdown">
+              <%= link_to "#", class: "navbar-item" do %>
+                About
+              <% end %>
+              <%= link_to "#", class: "navbar-item" do %>
+                Jobs
+              <% end %>
+              <%= link_to "#", class: "navbar-item" do %>
+                Contact
+              <% end %>
+              <hr class="navbar-divider">
+              <%= link_to "#", class: "navbar-item" do %>
+                Report an issue
+              <% end %>
+            </div>
+          </div>
+        </div>
+
+        <div class="navbar-end">
+          <div class="navbar-item">
+            <div class="buttons">
+              <% if current_user %>
+                <%= link_to edit_setting_path, class: "button" do %>
+                  Setting
+                <% end %>
+                <%= link_to logout_path, data: { turbo_method: :delete, turbo_confirm: t("logout_confirm") }, class: "button is-danger" do %>
+                  Logout
+                <% end %>
+              <% else %>
+                <%= link_to new_user_path, class: "button is-primary" do %>
+                  <strong>Sign up</strong>
+                <% end %>
+                <%= link_to login_path, class: "button is-light" do %>
+                  Log in
+                <% end %>
+              <% end %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </nav>
+    <section class="section">
+      <div class="container">
+        <% flash.each do |name, msg| %>
+          <div class="notification <%= name %>"><%= msg %></div>
+        <% end %>
+
+        <%= yield %>
+      </div>
+    </section>
+  </body>
+</html>

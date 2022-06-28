@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= t "admin.title" %></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
+    <%= stylesheet_link_tag 'application' %>
+    <%= javascript_importmap_tags %>
+  </head>
+
+  <body>
+    <nav class="navbar" role="navigation" aria-label="main navigation">
+      <div class="navbar-brand">
+        <%= link_to admin_root_path, class: "navbar-item" do %>
+          <p>Admin</p>
+        <% end %>
+      </div>
+
+      <div class="navbar-menu">
+        <div class="navbar-end">
+          <div class="navbar-item">
+            <div class="buttons">
+              <% if current_user %>
+                <%= link_to admin_logout_path, data: { turbo_method: :delete, turbo_confirm: t("logout_confirm") }, class: "button is-danger" do %>
+                  Logout
+                <% end %>
+              <% else %>
+                <%= link_to admin_login_path, class: "button is-light" do %>
+                  Log in
+                <% end %>
+              <% end %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <section class="section">
+      <div class="container">
+        <div class="columns">
+
+          <div class="column is-one-quarter">
+            <aside class="menu">
+              <p class="menu-label">
+                General
+              </p>
+              <ul class="menu-list">
+                <li><%= link_to "Home", admin_root_path, class: ("is-active" if current_page?(admin_root_path)) %></li>
+              </ul>
+              <p class="menu-label">
+                Administration
+              </p>
+              <ul class="menu-list">
+                <li><%= link_to "Company", admin_companies_path, class: ("is-active" if controller_name == "companies") %></li>
+                <li><%= link_to "StaffMember", admin_staff_members_path, class: ("is-active" if controller_name.match?(/staff_members/)) %></li>
+                <li><%= link_to "AdminUser", "#", class: ("is-active" if controller_name == "admin_users") %></li>
+              </ul>
+            </aside>
+          </div>
+
+          <div class="column">
+            <% flash.each do |name, msg| %>
+              <div class="notification <%= name %>"><%= msg %></div>
+            <% end %>
+
+            <%= yield %>
+          </div>
+        </div><!-- .column -->
+      </div><!-- .container -->
+    </section>
+  </body>
+</html>

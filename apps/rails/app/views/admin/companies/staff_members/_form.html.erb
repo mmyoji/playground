@@ -1,0 +1,21 @@
+<% staff_member = local_assigns[:staff_member] %>
+
+<%= form_with model: staff_member, url: admin_company_staff_members_path(company_id: staff_member.company_id), local: true do |f| %>
+  <%= render "shared/model_errors", model: staff_member %>
+
+  <div class="field">
+    <%= f.label :username, class: "label" %>
+    <%= f.text_field :username, class: "input" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :email, class: "label" %>
+    <%= f.email_field :email, class: "input" %>
+  </div>
+
+  <div class="field">
+    <div class="control">
+      <%= f.submit nil, class: "button is-link" %>
+    </div>
+  </div>
+<% end %>

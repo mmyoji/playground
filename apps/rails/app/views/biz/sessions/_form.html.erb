@@ -1,0 +1,17 @@
+<%= form_with scope: :staff_member, url: biz_sessions_url, local: true do |f| %>
+  <div class="field">
+    <%= f.label :email, class: "label" %>
+    <%= f.email_field :email, class: "input" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :password, class: "label" %>
+    <%= f.password_field :password, class: "input" %>
+  </div>
+
+  <div class="field">
+    <div class="control">
+      <%= f.submit "Login", class: "button is-link" %>
+    </div>
+  </div>
+<% end %>

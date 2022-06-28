@@ -1,0 +1,11 @@
+.env
+.env.example
+.gitignore
+
+.bundle
+.git
+
+README.md
+
+log
+tmp

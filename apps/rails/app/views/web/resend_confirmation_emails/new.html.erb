@@ -1,0 +1,13 @@
+<h1 class="title">Resend confirmation email</h1>
+
+<% if current_user.confirmed? %>
+  <p>You already confirm the email.</p>
+
+  <p>
+    <%= link_to "Back", root_path %>
+  </p>
+<% else %>
+  <p>Are you sure your email address is <strong><%= current_user.email %></strong>?</p>
+
+  <%= link_to "Resend", resend_confirmation_email_path, data: { turbo_method: :post }, class: "button is-primary" %>
+<% end %>

@@ -1,0 +1,25 @@
+<div class="level">
+  <div class="level-left">
+    <h1 class="title">ID: <%= @company.id %> - <%= @company.name %></h1>
+  </div>
+  <div class="level-right">
+    <div class="columns">
+      <div class="column">
+        <%= link_to t("admin.companies.staff_members.new.title"), new_admin_company_staff_member_path(@company), class: "button is-primary" %>
+      </div>
+      <div class="column">
+        <%= link_to t("edit"), edit_admin_company_path(@company), class: "button" %>
+      </div>
+      <div class="column">
+        <%= link_to t("delete"), admin_company_path(@company), class: "button is-danger", data: { turbo_method: :delete, turbo_confirm: t("delete_confirm") } %>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="content is-small">
+  <% %i(name tel email address founded_at).each do |attribute| %>
+    <h3><%= t "activerecord.attributes.company.#{attribute}" %></h3>
+    <p><%= @company.public_send(attribute) %></p>
+  <% end %>
+</div>

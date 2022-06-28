@@ -1,0 +1,6 @@
+<h2>Welcome to <%= t("title") %>! Please confirm your email address</h2>
+
+<p>Click the below link to confirm:</p>
+
+<%= link_to nil, confirmations_url(token: @user.confirmation_token) %>
+

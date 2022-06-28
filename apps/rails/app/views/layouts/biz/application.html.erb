@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= t "biz.title" %></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
+    <%= stylesheet_link_tag 'application' %>
+    <%= javascript_importmap_tags %>
+  </head>
+
+  <body>
+    <nav class="navbar" role="navigation" aria-label="main navigation">
+      <div class="navbar-brand">
+        <%= link_to biz_root_path, class: "navbar-item" do %>
+          <p>Biz</p>
+        <% end %>
+      </div>
+
+      <div class="navbar-menu">
+        <div class="navbar-end">
+          <div class="navbar-item">
+            <div class="buttons">
+              <% if current_user %>
+                <%= link_to biz_logout_url, data: { turbo_method: :delete, turbo_confirm: t("logout_confirm") }, class: "button is-danger" do %>
+                  Logout
+                <% end %>
+              <% else %>
+                <%= link_to biz_login_url, class: "button is-light" do %>
+                  Log in
+                <% end %>
+              <% end %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <section class="section">
+      <div class="container">
+        <div class="columns">
+
+          <div class="column is-one-quarter">
+            <aside class="menu">
+              <p class="menu-label">
+                General
+              </p>
+              <ul class="menu-list">
+                <li><%= link_to "Home", biz_root_path, class: ("is-active" if current_page?(admin_root_path)) %></li>
+              </ul>
+              <p class="menu-label">
+                Administration
+              </p>
+              <ul class="menu-list">
+                <li><%= link_to "StaffMember", "#", class: ("is-active" if controller_name.start_with?("staff_member")) %></li>
+              </ul>
+            </aside>
+          </div>
+
+          <div class="column">
+            <% flash.each do |name, msg| %>
+              <div class="notification <%= name %>"><%= msg %></div>
+            <% end %>
+
+            <%= yield %>
+          </div>
+        </div><!-- .column -->
+      </div><!-- .container -->
+    </section>
+  </body>
+</html>

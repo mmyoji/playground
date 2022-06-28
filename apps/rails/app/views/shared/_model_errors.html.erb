@@ -1,0 +1,10 @@
+<%#= :model must be an instance of ApplicationRecord. %>
+<% model = local_assigns[:model] %>
+
+<% if model.errors.any? %>
+  <div class="notification is-danger">
+    <% model.errors.full_messages.each do |msg| %>
+      <p><%= msg %>.</p>
+    <% end %>
+  </div>
+<% end %>

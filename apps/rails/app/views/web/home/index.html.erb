@@ -1,0 +1,13 @@
+<h1 class="title">Home</h1>
+
+<div class="content is-medium">
+  <% if current_user %>
+    <% if !current_user.confirmed? %>
+      <div class="notification is-warning">
+        Confirm your email or <%= link_to "resend your confirmation email again?", new_resend_confirmation_email_path %>
+      </div>
+    <% end %>
+
+    <p>Hello, <strong><%= current_user.username %></strong>!</p>
+  <% end %>
+</div>

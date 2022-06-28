@@ -18,7 +18,7 @@
     "db:console": "tsx scripts/prisma-repl.ts"
   },
   "dependencies": {
-    "@prisma/client": "^3.15.2",
+    "@prisma/client": "^4.0.0",
     "next": "^12.1.6",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
@@ -34,7 +34,7 @@
     "eslint": "^8.18.0",
     "eslint-config-next": "^12.1.6",
     "jsdom": "^20.0.0",
-    "prisma": "^3.15.2",
+    "prisma": "^4.0.0",
     "tsx": "^3.6.0",
     "typescript": "^4.7.4",
     "vite": "^2.9.13",

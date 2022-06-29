@@ -63,7 +63,7 @@ const EditPostPage: NextPageWithMetadata<Props> = (
   return (
     <Layout>
       <Link href={`/posts/${id}`}>
-        <a>&lt; Back</a>
+        &lt; Back
       </Link>
 
       <h1>{title}</h1>

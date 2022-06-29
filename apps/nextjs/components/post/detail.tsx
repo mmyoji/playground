@@ -24,9 +24,7 @@ export const PostDetail = ({ post }: Props) => {
       </p>
       <p>{content}</p>
       <Link href={`/posts/${id}/edit`}>
-        <a>
-          Edit
-        </a>
+        Edit
       </Link>
     </>
   );

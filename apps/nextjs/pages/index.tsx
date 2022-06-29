@@ -26,7 +26,7 @@ const PostsPage: NextPageWithMetadata<Props> = ({ posts }) => {
       <div>
         {/* TODO: Signed-in user can only see this link */}
         <Link href="/posts/new">
-          <a>Create a new Post</a>
+          Create a new Post
         </Link>
       </div>
 

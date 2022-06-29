@@ -4,7 +4,7 @@ export function Navigation() {
   return (
     <nav>
       <Link href="/">
-        <a>Top</a>
+        Top
       </Link>
     </nav>
   );

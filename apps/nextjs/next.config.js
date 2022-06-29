@@ -4,6 +4,8 @@
 const config = {
   swcMinify: true,
   experimental: {
+    browsersListForSwc: true,
+    legacyBrowsers: false,
     runtime: "nodejs",
   },
   async headers() {

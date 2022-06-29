@@ -6,7 +6,7 @@ const config = {
   experimental: {
     browsersListForSwc: true,
     legacyBrowsers: false,
-    runtime: "nodejs",
+    runtime: "experimental-edge",
   },
   async headers() {
     return [

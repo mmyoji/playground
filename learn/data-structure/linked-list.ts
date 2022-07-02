@@ -68,4 +68,20 @@ export class LinkedList<T> {
 
     return null;
   }
+
+  deleteHead(): NodeType<T> {
+    if (!this.head || !this.tail) {
+      return null;
+    }
+
+    const deleted = this.head;
+    if (this.head.next) {
+      this.head = this.head.next;
+    } else {
+      this.head = null;
+      this.tail = null;
+    }
+
+    return deleted;
+  }
 }

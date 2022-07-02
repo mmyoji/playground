@@ -127,3 +127,31 @@ Deno.test(
     }
   }
 );
+
+Deno.test("LinkedList.deleteHead returns null when the list is empty", () => {
+  const list = new LinkedList<string>();
+
+  const result = list.deleteHead();
+
+  assertEquals(result, null);
+
+  assertEquals(list.head, null);
+  assertEquals(list.tail, null);
+});
+
+Deno.test(
+  "LinkedList.deleteHead returns head node when the list is not empty and sets next head",
+  () => {
+    const list = new LinkedList<string>();
+
+    list.append("foo");
+    list.append("bar");
+
+    const result = list.deleteHead();
+
+    assertEquals(result!.value, "foo");
+
+    assertEquals(list.head!.value, "bar");
+    assertStrictEquals(list.head, list.tail);
+  }
+);

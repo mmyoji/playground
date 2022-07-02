@@ -21,8 +21,8 @@ export class DoublyLinkedList<T> {
     this.tail = null;
   }
 
-  append(value: T): DoublyLinkedList<T> {
-    const newNode = new DoublyLinkedListNode<typeof value>(value);
+  append(value: T): this {
+    const newNode = new DoublyLinkedListNode<T>(value);
 
     if (!this.head || !this.tail) {
       this.head = newNode;
@@ -34,6 +34,21 @@ export class DoublyLinkedList<T> {
     this.tail.next = newNode;
     newNode.prev = this.tail;
     this.tail = newNode;
+
+    return this;
+  }
+
+  prepend(value: T): this {
+    const newNode = new DoublyLinkedListNode<T>(value, null, this.head);
+
+    if (this.head) {
+      this.head.prev = newNode;
+    }
+    this.head = newNode;
+
+    if (!this.tail) {
+      this.tail = newNode;
+    }
 
     return this;
   }

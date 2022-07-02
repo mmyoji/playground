@@ -1,3 +1,5 @@
+// see: https://github.com/trekhleb/javascript-algorithms/tree/master/src/data-structures/doubly-linked-list
+
 type NodeType<T> = DoublyLinkedListNode<T> | null;
 
 class DoublyLinkedListNode<T> {

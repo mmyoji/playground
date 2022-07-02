@@ -51,7 +51,7 @@ export class LinkedList<T> {
     return this;
   }
 
-  find(value: T): NodeType<T> {
+  find(equal: (node: LinkedListNode<T>) => boolean): NodeType<T> {
     if (!this.head) {
       return null;
     }
@@ -59,7 +59,7 @@ export class LinkedList<T> {
     let current: NodeType<T> = this.head;
 
     while (current) {
-      if (current.value === value) {
+      if (equal(current)) {
         return current;
       }
 
@@ -67,6 +67,36 @@ export class LinkedList<T> {
     }
 
     return null;
+  }
+
+  delete(value: T, equal: (a: T, b: T) => boolean): NodeType<T> {
+    if (!this.head || !this.tail) {
+      return null;
+    }
+
+    let deleted: NodeType<T> = null;
+    while (this.head && equal(this.head.value, value)) {
+      deleted = this.head;
+      this.head = this.head.next;
+    }
+
+    let current: NodeType<T> = this.head;
+    if (current != null) {
+      while (current.next) {
+        if (equal(current.next.value, value)) {
+          deleted = current.next;
+          current.next = current.next.next;
+        } else {
+          current = current.next;
+        }
+      }
+    }
+
+    if (equal(this.tail.value, value)) {
+      this.tail = current;
+    }
+
+    return deleted;
   }
 
   deleteHead(): NodeType<T> {

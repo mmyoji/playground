@@ -72,7 +72,7 @@ Deno.test(
 Deno.test("LinkedList.find returns null when the list is empty", () => {
   const list = new LinkedList<string>();
 
-  const result = list.find("foo");
+  const result = list.find((n) => n.value === "foo");
   assertEquals(result, null);
 });
 
@@ -86,17 +86,17 @@ Deno.test(
     list.append("buz");
 
     {
-      const result = list.find("f");
+      const result = list.find((n) => n.value === "f");
       assertEquals(result, null);
     }
 
     {
-      const result = list.find("o");
+      const result = list.find((n) => n.value === "o");
       assertEquals(result, null);
     }
 
     {
-      const result = list.find("ba");
+      const result = list.find((n) => n.value === "ba");
       assertEquals(result, null);
     }
   }
@@ -112,18 +112,50 @@ Deno.test(
     list.append("buz");
 
     {
-      const result = list.find("foo");
+      const result = list.find((n) => n.value === "foo");
       assertEquals(result!.value, "foo");
     }
 
     {
-      const result = list.find("bar");
+      const result = list.find((n) => n.value === "bar");
       assertEquals(result!.value, "bar");
     }
 
     {
-      const result = list.find("buz");
+      const result = list.find((n) => n.value === "buz");
       assertEquals(result!.value, "buz");
+    }
+  }
+);
+
+Deno.test("LinkedList.delete returns null when the list is empty", () => {
+  const list = new LinkedList<string>();
+
+  const result = list.delete("foo", (a, b) => a === b);
+  assertEquals(result, null);
+});
+
+Deno.test(
+  "LinkedList.delete returns deleted element when target is found",
+  () => {
+    const list = new LinkedList<string>();
+    list.append("foo");
+    list.append("bar");
+    list.append("buz");
+
+    {
+      const result = list.delete("foo", (a, b) => a === b);
+      assertEquals(result!.value, "foo");
+    }
+
+    {
+      const result = list.delete("f", (a, b) => a === b);
+      assertEquals(result, null);
+    }
+
+    {
+      const result = list.delete("bar", (a, b) => a === b);
+      assertEquals(result!.value, "bar");
     }
   }
 );

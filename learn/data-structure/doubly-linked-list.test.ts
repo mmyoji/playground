@@ -94,3 +94,62 @@ Deno.test(
     assertEquals(list.tail!.next, null);
   }
 );
+
+Deno.test("DoublyLinkedList.find returns null when the list is empty", () => {
+  const list = new DoublyLinkedList<string>();
+
+  const result = list.find("foo");
+  assertEquals(result, null);
+});
+
+Deno.test(
+  "DoublyLinkedList.find returns null when the list doesn't have matched value",
+  () => {
+    const list = new DoublyLinkedList<string>();
+
+    list.append("foo");
+    list.append("bar");
+    list.append("buz");
+
+    {
+      const result = list.find("f");
+      assertEquals(result, null);
+    }
+
+    {
+      const result = list.find("o");
+      assertEquals(result, null);
+    }
+
+    {
+      const result = list.find("ba");
+      assertEquals(result, null);
+    }
+  }
+);
+
+Deno.test(
+  "DoublyLinkedList.find returns matched node when the list has matched value",
+  () => {
+    const list = new DoublyLinkedList<string>();
+
+    list.append("foo");
+    list.append("bar");
+    list.append("buz");
+
+    {
+      const result = list.find("foo");
+      assertEquals(result!.value, "foo");
+    }
+
+    {
+      const result = list.find("bar");
+      assertEquals(result!.value, "bar");
+    }
+
+    {
+      const result = list.find("buz");
+      assertEquals(result!.value, "buz");
+    }
+  }
+);

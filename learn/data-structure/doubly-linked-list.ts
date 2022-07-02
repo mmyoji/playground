@@ -52,4 +52,22 @@ export class DoublyLinkedList<T> {
 
     return this;
   }
+
+  find(value: T): NodeType<T> {
+    if (!this.head || !this.tail) {
+      return null;
+    }
+
+    let current: NodeType<T> = this.head;
+
+    while (current) {
+      if (current.value === value) {
+        return current;
+      }
+
+      current = current.next;
+    }
+
+    return null;
+  }
 }

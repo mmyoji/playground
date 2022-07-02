@@ -64,4 +64,59 @@ describe("LinkedList", () => {
       assertEquals(linkedList.tail!.next, null);
     });
   });
+
+  describe("find", () => {
+    it("returns null when the list is empty", () => {
+      const linkedList = new LinkedList<string>();
+
+      const result = linkedList.find("foo");
+      assertEquals(result, null);
+    });
+
+    it("returns null when the list doesn't have matched value", () => {
+      const linkedList = new LinkedList<string>();
+
+      linkedList.append("foo");
+      linkedList.append("bar");
+      linkedList.append("buz");
+
+      {
+        const result = linkedList.find("f");
+        assertEquals(result, null);
+      }
+
+      {
+        const result = linkedList.find("o");
+        assertEquals(result, null);
+      }
+
+      {
+        const result = linkedList.find("ba");
+        assertEquals(result, null);
+      }
+    });
+
+    it("returns matched node when the list has matched value", () => {
+      const linkedList = new LinkedList<string>();
+
+      linkedList.append("foo");
+      linkedList.append("bar");
+      linkedList.append("buz");
+
+      {
+        const result = linkedList.find("foo");
+        assertEquals(result!.value, "foo");
+      }
+
+      {
+        const result = linkedList.find("bar");
+        assertEquals(result!.value, "bar");
+      }
+
+      {
+        const result = linkedList.find("buz");
+        assertEquals(result!.value, "buz");
+      }
+    });
+  });
 });

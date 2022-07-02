@@ -48,4 +48,22 @@ export class LinkedList<T> {
 
     return this;
   }
+
+  find(value: T): LinkedListNode<T> | null {
+    if (!this.head) {
+      return null;
+    }
+
+    let current: LinkedListNode<T> | null = this.head;
+
+    while (current) {
+      if (current.value === value) {
+        return current;
+      }
+
+      current = current.next;
+    }
+
+    return null;
+  }
 }

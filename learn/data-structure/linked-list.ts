@@ -81,7 +81,7 @@ export class LinkedList<T> {
     }
 
     let current: NodeType<T> = this.head;
-    if (current != null) {
+    if (current !== null) {
       while (current.next) {
         if (equal(current.next.value, value)) {
           deleted = current.next;

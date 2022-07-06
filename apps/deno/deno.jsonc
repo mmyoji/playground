@@ -3,5 +3,19 @@
     "dev": "deno run --allow-env=PORT --allow-net=0.0.0.0 main.ts",
     "build": "deno compile --allow-env=PORT --allow-net=0.0.0.0 --output bin/main main.ts"
   },
-  "importMap": "import_map.json"
+  "importMap": "import_map.json",
+  "lint": {
+    "rules": {
+      "tags": ["recommended"],
+      "include": [
+        "camelcase",
+        "eqeqeq",
+        "explicit-function-return-type",
+        "explicit-module-boundary-types",
+        "no-const-assign",
+        "no-eval",
+        "prefer-ascii"
+      ]
+    }
+  }
 }

@@ -6,7 +6,7 @@
 
 import { h } from "nano_jsx";
 
-export function App() {
+export function App(): JSX.IntrinsicElements {
   return (
     <html>
       <head>

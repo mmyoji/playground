@@ -1,0 +1,16 @@
+{
+  "importMap": "./import_map.json",
+  "lint": {
+    "rules": {
+      "tags": ["recommended"],
+      "include": [
+        "camelCase",
+        "eqeqeq",
+        "explicit-function-return-type",
+        "explicit-module-boundary-types",
+        "no-const-assign",
+        "no-eval"
+      ]
+    }
+  }
+}

@@ -13,4 +13,10 @@ const app = new Application();
   app.use(router.allowedMethods());
 });
 
+app.use(async (context) => {
+  await context.send({
+    root: `${Deno.cwd()}/public`,
+  });
+});
+
 await app.listen({ port });

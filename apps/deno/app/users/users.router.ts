@@ -9,17 +9,17 @@ const usersService = new UsersService();
 usersRouter.post("/users", async (ctx) => {
   const body = ctx.request.body({ type: "json" });
   const value = await body.value;
-  const userOrError = await usersService.create(
-    value as Partial<Pick<User, "name">>,
+  const { user, error } = await usersService.create(
+    value as Partial<Pick<User, "name">>
   );
-  if (typeof userOrError === "string") {
+  if (typeof error === "string") {
     ctx.response.status = Status.UnprocessableEntity;
-    ctx.response.body = { errors: [{ message: userOrError }] };
+    ctx.response.body = { errors: [{ message: error }] };
     return;
   }
 
   ctx.response.status = Status.Created;
-  ctx.response.body = { user: userOrError };
+  ctx.response.body = { user };
 });
 
 export { usersRouter };

@@ -11,13 +11,15 @@ export class UsersService {
     this.#repository = new UsersRepository();
   }
 
-  async create(args: Partial<CreateArgs>): Promise<User | string> {
+  async create(
+    args: Partial<CreateArgs>
+  ): Promise<{ user: null; error: string } | { user: User; error: null }> {
     const error = await validate(args);
     if (error) {
-      return error;
+      return { error, user: null };
     }
 
     const user = await this.#repository.create(args as CreateArgs);
-    return user;
+    return { error: null, user };
   }
 }

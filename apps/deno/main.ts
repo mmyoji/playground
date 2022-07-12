@@ -3,15 +3,16 @@ import { Application } from "oak";
 import { rootRouter } from "./app/root/root.router.ts";
 import { usersRouter } from "./app/users/users.router.ts";
 import { jsxRouter } from "./app/jsx/jsx.router.tsx";
-
-const port = Number(Deno.env.get("PORT") || "8080");
+import { config } from "./config.ts";
 
 const app = new Application();
 
-[rootRouter, usersRouter, jsxRouter].forEach((router) => {
+const routers = [rootRouter, usersRouter, jsxRouter];
+
+for (const router of routers) {
   app.use(router.routes());
   app.use(router.allowedMethods());
-});
+}
 
 app.use(async (context) => {
   await context.send({
@@ -19,4 +20,4 @@ app.use(async (context) => {
   });
 });
 
-await app.listen({ port });
+await app.listen({ port: config.port });

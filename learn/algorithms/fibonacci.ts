@@ -11,9 +11,8 @@ export function fibonacci(): () => number {
       return 1;
     }
 
-    const next = prev + curr;
-    prev = curr;
-    curr = next;
-    return next;
+    curr += prev;
+    prev = curr - prev;
+    return curr;
   };
 }

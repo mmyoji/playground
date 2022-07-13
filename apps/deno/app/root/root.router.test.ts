@@ -1,6 +1,6 @@
 import { testing } from "oak";
-import { assertEquals } from "asserts";
-import { describe, it } from "bdd";
+import { assertEquals } from "testing/asserts.ts";
+import { describe, it } from "testing/bdd.ts";
 
 import { rootRouter } from "./root.router.ts";
 

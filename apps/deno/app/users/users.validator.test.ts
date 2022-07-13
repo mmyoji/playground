@@ -1,4 +1,4 @@
-import { assertEquals } from "asserts";
+import { assertEquals } from "testing/asserts.ts";
 
 import { validate } from "./users.validator.ts";
 
@@ -8,7 +8,7 @@ Deno.test("UsersValidator.valdate", async (t) => {
     async () => {
       const error = await validate({});
       assertEquals(error, "[name] must exists or be string.");
-    },
+    }
   );
 
   await t.step(
@@ -17,7 +17,7 @@ Deno.test("UsersValidator.valdate", async (t) => {
       // @ts-ignore: could be possible
       const error = await validate({ name: 1 });
       assertEquals(error, "[name] must exists or be string.");
-    },
+    }
   );
 
   await t.step(
@@ -25,7 +25,7 @@ Deno.test("UsersValidator.valdate", async (t) => {
     async () => {
       const error = await validate({ name: "Bob" });
       assertEquals(error, "[name] has already been taken.");
-    },
+    }
   );
 
   await t.step("returns a blank string with valid args", async () => {

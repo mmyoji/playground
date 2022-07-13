@@ -1,4 +1,4 @@
-import { assertEquals } from "asserts";
+import { assertEquals } from "testing/asserts.ts";
 
 import { UsersRepository } from "./users.repository.ts";
 

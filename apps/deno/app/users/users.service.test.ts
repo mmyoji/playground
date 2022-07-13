@@ -1,4 +1,4 @@
-import { assertEquals } from "asserts";
+import { assertEquals } from "testing/asserts.ts";
 
 import { UsersService } from "./users.service.ts";
 

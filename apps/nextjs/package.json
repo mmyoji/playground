@@ -18,7 +18,7 @@
     "db:console": "tsx scripts/prisma-repl.ts"
   },
   "dependencies": {
-    "@prisma/client": "^4.0.0",
+    "@prisma/client": "^4.1.0",
     "next": "^12.2.2",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",

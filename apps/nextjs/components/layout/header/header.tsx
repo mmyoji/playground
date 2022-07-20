@@ -1,12 +1,14 @@
+import { Link } from "@/components/shared/link";
 import { config } from "@/lib/config";
-import { Navigation } from "./navigation";
 
 export function Header() {
   return (
-    <header>
-      <h1>{config.app.name}</h1>
-
-      <Navigation />
+    <header className="py-4">
+      <h1 className="text-3xl font-bold">
+        <Link href="/">
+          {config.app.name}
+        </Link>
+      </h1>
     </header>
   );
 }

@@ -29,7 +29,7 @@ const PostsPage: NextPageWithMetadata<Props> = ({ posts }) => {
         </ActionButtonLink>
       </div>
 
-      <section>
+      <section className="p-3">
         {posts.map((post) => <PostListItem key={post.id} {...post} />)}
       </section>
     </Layout>

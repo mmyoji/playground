@@ -9,10 +9,10 @@ interface Props {
 
 export function Layout({ children }: Props) {
   return (
-    <>
+    <div className="container mx-auto flex min-h-screen flex-col">
       <Header />
-      <main>{children}</main>
+      <main className="flex-1">{children}</main>
       <Footer />
-    </>
+    </div>
   );
 }

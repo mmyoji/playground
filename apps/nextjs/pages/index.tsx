@@ -2,7 +2,7 @@ import { GetStaticProps } from "next";
 import { NextPageWithMetadata } from "@/app-env";
 import { PostListItem } from "@/components/post/list-item";
 import { Layout } from "@/components/layout/layout";
-import { Link } from "@/components/shared/link";
+import { ActionButtonLink } from "@/components/shared/action-button-link";
 import { postQuery } from "@/lib/post.query";
 
 interface Props {
@@ -22,11 +22,11 @@ export const getStaticProps: GetStaticProps<Props> = async () => {
 const PostsPage: NextPageWithMetadata<Props> = ({ posts }) => {
   return (
     <Layout>
-      <div>
+      <div className="my-3">
         {/* TODO: Signed-in user can only see this link */}
-        <Link href="/posts/new">
+        <ActionButtonLink href="/posts/new">
           Create a new Post
-        </Link>
+        </ActionButtonLink>
       </div>
 
       <section>

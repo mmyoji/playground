@@ -1,9 +1,8 @@
-import Link from "next/link";
-
 import { GetStaticProps } from "next";
 import { NextPageWithMetadata } from "@/app-env";
 import { PostListItem } from "@/components/post/list-item";
 import { Layout } from "@/components/layout/layout";
+import { Link } from "@/components/shared/link";
 import { postQuery } from "@/lib/post.query";
 
 interface Props {

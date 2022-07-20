@@ -1,11 +1,10 @@
-import Link from "next/link";
-
 import { GetServerSideProps } from "next";
 import { useRouter } from "next/router";
 import { toast } from "react-toastify";
 import { NextPageWithMetadata } from "@/app-env";
 import { Layout } from "@/components/layout/layout";
 import { IOnSubmit, PostForm } from "@/components/post/form";
+import { Link } from "@/components/shared/link";
 import { Toast } from "@/components/shared/toast";
 import { postQuery } from "@/lib/post.query";
 import { Params } from "@/lib/post.validator";

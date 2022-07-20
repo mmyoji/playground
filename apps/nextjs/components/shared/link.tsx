@@ -7,5 +7,11 @@ type Props = PropsWithChildren<{
 }>;
 
 export function Link({ href, children, className }: Props) {
-  return <NextLink href={href} className={className}>{children}</NextLink>;
+  return (
+    <NextLink href={href} passHref>
+      <a className={className}>
+        {children}
+      </a>
+    </NextLink>
+  );
 }

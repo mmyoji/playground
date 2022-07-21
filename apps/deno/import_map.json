@@ -1,6 +1,6 @@
 {
   "imports": {
-    "testing/": "https://deno.land/std@0.148.0/testing/",
+    "testing/": "https://deno.land/std@0.149.0/testing/",
     "oak": "https://deno.land/x/oak@v10.6.0/mod.ts",
     "nano_jsx": "https://deno.land/x/nano_jsx@v0.0.33/mod.ts"
   }

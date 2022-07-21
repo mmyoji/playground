@@ -16,7 +16,7 @@ export async function handler(_req: Request, ctx: MiddlewareHandlerContext) {
   res.headers.set("X-DNS-Prefetch-Control", "on");
   res.headers.set(
     "Strict-Transport-Security",
-    "max-age=63072000; includeSubDomains; preload"
+    "max-age=63072000; includeSubDomains; preload",
   );
   res.headers.set("X-XSS-Protection", "1; mode=block");
   res.headers.set("X-Frame-Options", "DENY");

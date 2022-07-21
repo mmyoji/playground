@@ -1,5 +1,5 @@
 /** @jsx h */
-import { h, ComponentChildren } from "preact";
+import { ComponentChildren, h } from "preact";
 import { tw } from "@twind";
 
 import { Header } from "./Layout/Header.tsx";

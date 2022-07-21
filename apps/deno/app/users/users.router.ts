@@ -10,7 +10,7 @@ usersRouter.post("/users", async (ctx) => {
   const body = ctx.request.body({ type: "json" });
   const value = await body.value;
   const { user, error } = await usersService.create(
-    value as Partial<Pick<User, "name">>
+    value as Partial<Pick<User, "name">>,
   );
   if (typeof error === "string") {
     ctx.response.status = Status.UnprocessableEntity;

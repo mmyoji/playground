@@ -12,7 +12,7 @@ export class UsersService {
   }
 
   async create(
-    args: Partial<CreateArgs>
+    args: Partial<CreateArgs>,
   ): Promise<{ user: null; error: string } | { user: User; error: null }> {
     const error = await validate(args);
     if (error) {

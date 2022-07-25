@@ -1,22 +1,22 @@
-name: Test apps/nextjs
+name: Test nextjs
 on:
   push:
     paths:
-      - "apps/nextjs/**"
+      - "nextjs/**"
 
 jobs:
   test:
     runs-on: ubuntu-latest
     defaults:
       run:
-        working-directory: apps/nextjs
+        working-directory: nextjs
     steps:
       - uses: actions/checkout@v3
       - uses: actions/setup-node@v3
         with:
           node-version: 16
           cache: "npm"
-          cache-dependency-path: apps/nextjs/package-lock.json
+          cache-dependency-path: nextjs/package-lock.json
       - uses: denoland/setup-deno@v1
         with:
           deno-version: v1.x

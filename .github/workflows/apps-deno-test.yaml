@@ -1,14 +1,14 @@
-name: Test apps/deno
+name: Test deno
 on:
   push:
     paths:
-      - "apps/deno/**"
+      - "deno/**"
 jobs:
   test-deno:
     runs-on: ubuntu-latest
     defaults:
       run:
-        working-directory: apps/deno
+        working-directory: deno
     steps:
       - uses: actions/checkout@v3
       - uses: denoland/setup-deno@v1

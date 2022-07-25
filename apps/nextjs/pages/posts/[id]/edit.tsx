@@ -5,6 +5,7 @@ import { NextPageWithMetadata } from "@/app-env";
 import { Layout } from "@/components/layout/layout";
 import { IOnSubmit, PostForm } from "@/components/post/form";
 import { Link } from "@/components/shared/link";
+import { Title } from "@/components/shared/title";
 import { Toast } from "@/components/shared/toast";
 import { postQuery } from "@/lib/post.query";
 import { Params } from "@/lib/post.validator";
@@ -65,7 +66,7 @@ const EditPostPage: NextPageWithMetadata<Props> = (
         &lt; Back
       </Link>
 
-      <h1>{title}</h1>
+      <Title>{title}</Title>
 
       <PostForm
         init={{ title, published }}

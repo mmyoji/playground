@@ -1,6 +1,6 @@
 import { faker } from "@faker-js/faker";
-import { sleep } from "@/lib/timer.helper.js";
-import { prisma } from "./client.js";
+import { sleep } from "@/lib/timer.helper";
+import { prisma } from "./client";
 
 function seedPost({ published }: { published: boolean }) {
   return {

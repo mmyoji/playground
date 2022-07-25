@@ -1,6 +1,11 @@
 import { type FormEventHandler, useState } from "react";
 import { toast } from "react-toastify";
 
+import { Checkbox } from "@/components/shared/checkbox";
+import { Label } from "@/components/shared/label";
+import { SubmitButton } from "@/components/shared/submit-button";
+import { TextInput } from "@/components/shared/text-input";
+
 export type IOnSubmit = (
   args: {
     title: string;
@@ -42,39 +47,34 @@ export function PostForm({ buttonText, init, onSubmit }: Props) {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form onSubmit={handleSubmit} className="my-2">
       <div>
-        <label htmlFor="title">Title</label>
+        <Label htmlFor="title">Title</Label>
         <br />
-        <input
-          name="title"
+        <TextInput
           id="title"
-          data-testid="title"
           value={formData.title}
           required
-          onChange={({ target: { value } }) => {
+          onChange={(value) => {
             setFormData((prev) => ({ ...prev, title: value }));
           }}
         />
       </div>
 
       <div>
-        <label htmlFor="published">
-          <input
-            type="checkbox"
-            name="published"
-            id="published"
-            data-testid="published"
-            checked={formData.published}
-            onChange={() => {
-              setFormData((prev) => ({ ...prev, published: !prev.published }));
-            }}
-          />
-          Published
-        </label>
+        <Checkbox
+          id="published"
+          checked={formData.published}
+          label="Published"
+          onChange={() => {
+            setFormData((prev) => ({ ...prev, published: !prev.published }));
+          }}
+        />
       </div>
 
-      <input type="submit" data-testid="submit" value={buttonText} />
+      <div className="my-2">
+        <SubmitButton label={buttonText} />
+      </div>
     </form>
   );
 }

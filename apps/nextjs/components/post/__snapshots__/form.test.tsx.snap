@@ -2,15 +2,19 @@
 
 exports[`<PostForm> > matches former snapshot 1`] = `
 <div>
-  <form>
+  <form
+    class="my-2"
+  >
     <div>
       <label
+        class="font-bold"
         for="title"
       >
         Title
       </label>
       <br />
       <input
+        class="px-3 py-1.5 border border-solid border-gray-300 rounded"
         data-testid="title"
         id="title"
         name="title"
@@ -28,14 +32,23 @@ exports[`<PostForm> > matches former snapshot 1`] = `
           name="published"
           type="checkbox"
         />
-        Published
+        <span
+          class="ml-1"
+        >
+          Published
+        </span>
       </label>
     </div>
-    <input
-      data-testid="submit"
-      type="submit"
-      value="Submit"
-    />
+    <div
+      class="my-2"
+    >
+      <input
+        class="p-2 text-green-900 hover:text-green-700 bg-emerald-200 hover:bg-emerald-100 rounded-md border-2 border-solid border-emerald-200 hover:border-emerald-100"
+        data-testid="submit"
+        type="submit"
+        value="Submit"
+      />
+    </div>
   </form>
 </div>
 `;

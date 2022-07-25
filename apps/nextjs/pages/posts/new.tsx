@@ -3,6 +3,7 @@ import { toast } from "react-toastify";
 import { NextPageWithMetadata } from "@/app-env";
 import { Layout } from "@/components/layout/layout";
 import { IOnSubmit, PostForm } from "@/components/post/form";
+import { Title } from "@/components/shared/title";
 import { Toast } from "@/components/shared/toast";
 import { Params } from "@/lib/post.validator";
 import { command } from "@/lib/request";
@@ -24,7 +25,7 @@ const NewPostPage: NextPageWithMetadata<{}> = () => {
 
   return (
     <Layout>
-      <h1>{title}</h1>
+      <Title>{title}</Title>
       <PostForm onSubmit={onSubmit} buttonText="Create" />
       <Toast />
     </Layout>

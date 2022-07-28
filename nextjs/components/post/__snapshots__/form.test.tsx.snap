@@ -3,18 +3,18 @@
 exports[`<PostForm> > matches former snapshot 1`] = `
 <div>
   <form
-    class="my-2"
+    class="_form_11gmc_1"
   >
     <div>
       <label
-        class="font-bold"
+        class="_label_18bax_1"
         for="title"
       >
         Title
       </label>
       <br />
       <input
-        class="px-3 py-1.5 border border-solid border-gray-300 rounded"
+        class="_input_t18bm_1"
         data-testid="title"
         id="title"
         name="title"
@@ -33,17 +33,17 @@ exports[`<PostForm> > matches former snapshot 1`] = `
           type="checkbox"
         />
         <span
-          class="ml-1"
+          class="_text_1u3zs_1"
         >
           Published
         </span>
       </label>
     </div>
     <div
-      class="my-2"
+      class="_buttonContainer_11gmc_5"
     >
       <input
-        class="p-2 text-green-900 hover:text-green-700 bg-emerald-200 hover:bg-emerald-100 rounded-md border-2 border-solid border-emerald-200 hover:border-emerald-100"
+        class="_button_1kc8m_1"
         data-testid="submit"
         type="submit"
         value="Submit"

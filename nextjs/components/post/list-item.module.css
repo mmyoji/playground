@@ -1,0 +1,15 @@
+.article {
+  margin-bottom: 0.75rem;
+}
+
+.title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  line-height: 2rem;
+  -webkit-text-decoration-line: underline;
+  text-decoration-line: underline;
+}
+
+.timeContainer {
+  color: #6b7280;
+}

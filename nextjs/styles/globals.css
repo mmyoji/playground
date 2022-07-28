@@ -1,3 +1,11 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+:root {
+  --green-900: #14532d;
+  --green-700: #15803d;
+  --emerald-200: #a7f3d0;
+  --emerald-100: #d1fae5;
+  --gray-600: #6b7280;
+}

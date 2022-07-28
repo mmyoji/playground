@@ -1,3 +1,4 @@
+import "modern-normalize/modern-normalize.css";
 import "../styles/globals.css";
 import "react-toastify/dist/ReactToastify.css";
 

@@ -7,7 +7,7 @@ export function Header() {
   return (
     <header className={styles.header}>
       <h1 className={styles.title}>
-        <Link href="/">
+        <Link href="/" className={styles.titleLink}>
           {config.app.name}
         </Link>
       </h1>

@@ -5,6 +5,8 @@ import { Layout } from "@/components/layout/layout";
 import { ActionButtonLink } from "@/components/shared/action-button-link";
 import { postQuery } from "@/lib/post.query";
 
+import styles from "@/styles/index.module.css";
+
 interface Props {
   posts: Awaited<ReturnType<typeof postQuery.fetchMany>>;
 }
@@ -22,14 +24,14 @@ export const getStaticProps: GetStaticProps<Props> = async () => {
 const PostsPage: NextPageWithMetadata<Props> = ({ posts }) => {
   return (
     <Layout>
-      <div className="my-3">
+      <div className={styles.ActionButtonContainer}>
         {/* TODO: Signed-in user can only see this link */}
         <ActionButtonLink href="/posts/new">
           Create a new Post
         </ActionButtonLink>
       </div>
 
-      <section className="p-3">
+      <section className={styles.Section}>
         {posts.map((post) => <PostListItem key={post.id} {...post} />)}
       </section>
     </Layout>

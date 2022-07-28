@@ -3,15 +3,17 @@ import { ReactNode } from "react";
 import { Footer } from "./footer";
 import { Header } from "./header";
 
+import styles from "./layout.module.css";
+
 interface Props {
   children: ReactNode;
 }
 
 export function Layout({ children }: Props) {
   return (
-    <div className="container mx-auto flex min-h-screen flex-col">
+    <div className={styles.container}>
       <Header />
-      <main className="flex-1">{children}</main>
+      <main className={styles.main}>{children}</main>
       <Footer />
     </div>
   );

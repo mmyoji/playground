@@ -1,6 +1,8 @@
 import { ReactNode } from "react";
 import { ActionButtonLink } from "@/components/shared/action-button-link";
 
+import styles from "./detail.module.css";
+
 interface Props {
   post: {
     id: string;
@@ -13,7 +15,7 @@ interface Props {
 
 function TimeText({ children }: { children: ReactNode }) {
   return (
-    <p className="mt-2 text-gray-600">
+    <p className={styles.timeContainer}>
       <time>{children}</time>
     </p>
   );
@@ -23,16 +25,16 @@ export const PostDetail = ({ post }: Props) => {
   const { id, title, content, createdAt, updatedAt } = post;
 
   return (
-    <div className="p-3">
-      <h1 className="text-3xl font-bold">{title}</h1>
+    <div className={styles.container}>
+      <h1 className={styles.title}>{title}</h1>
       <TimeText>
         Created: {createdAt}
       </TimeText>
       <TimeText>
         Updated: {updatedAt}
       </TimeText>
-      <p className="py-2">{content}</p>
-      <div className="mt-2">
+      <p className={styles.content}>{content}</p>
+      <div className={styles.editButtonContainer}>
         <ActionButtonLink href={`/posts/${id}/edit`}>
           Edit
         </ActionButtonLink>

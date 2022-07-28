@@ -1,3 +1,5 @@
+import styles from "./checkbox.module.css";
+
 interface Props {
   id: string;
   name?: string;
@@ -19,7 +21,7 @@ export function Checkbox({ id, name, checked, onChange, label }: Props) {
           onChange();
         }}
       />
-      <span className="ml-1">{label}</span>
+      <span className={styles.text}>{label}</span>
     </label>
   );
 }

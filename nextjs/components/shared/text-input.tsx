@@ -1,3 +1,5 @@
+import styles from "./text-input.module.css";
+
 interface Props {
   id: string;
   name?: string;
@@ -17,7 +19,7 @@ export function TextInput({ id, name, value, onChange, required }: Props) {
       onChange={({ target: { value } }) => {
         onChange(value);
       }}
-      className="px-3 py-1.5 border border-solid border-gray-300 rounded"
+      className={styles.input}
     />
   );
 }

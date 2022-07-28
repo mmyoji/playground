@@ -6,6 +6,8 @@ import { Label } from "@/components/shared/label";
 import { SubmitButton } from "@/components/shared/submit-button";
 import { TextInput } from "@/components/shared/text-input";
 
+import styles from "./form.module.css";
+
 export type IOnSubmit = (
   args: {
     title: string;
@@ -47,7 +49,7 @@ export function PostForm({ buttonText, init, onSubmit }: Props) {
   };
 
   return (
-    <form onSubmit={handleSubmit} className="my-2">
+    <form onSubmit={handleSubmit} className={styles.form}>
       <div>
         <Label htmlFor="title">Title</Label>
         <br />
@@ -72,7 +74,7 @@ export function PostForm({ buttonText, init, onSubmit }: Props) {
         />
       </div>
 
-      <div className="my-2">
+      <div className={styles.buttonContainer}>
         <SubmitButton label={buttonText} />
       </div>
     </form>

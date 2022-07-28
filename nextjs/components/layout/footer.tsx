@@ -1,11 +1,13 @@
+import styles from "./footer.module.css";
+
 export function Footer() {
   return (
-    <footer className="py-4">
+    <footer className={styles.footer}>
       <a
         href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
         target="_blank"
         rel="noopener noreferrer"
-        className="underline"
+        className={styles.link}
       >
         Powered By Next.js
       </a>

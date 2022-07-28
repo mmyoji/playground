@@ -1,0 +1,8 @@
+.footer {
+  padding: 1rem 0;
+}
+
+.link {
+  -webkit-text-decoration-line: underline;
+  text-decoration-line: underline;
+}
